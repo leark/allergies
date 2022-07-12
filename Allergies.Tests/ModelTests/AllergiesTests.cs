@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using Allergies;
 
 namespace Allergies.Tests
@@ -18,6 +19,16 @@ namespace Allergies.Tests
       //assert
       
       Assert.AreEqual(1, newscore.Score);
+    }
+
+    [TestMethod]
+    public void Allergy_CalculateAllergyForOne_Egg()
+    {
+      int score = 1;
+      Allergy newscore = new Allergy(score);
+      List<string
+      > hasEggs = new List<string> {"eggs"};
+      Assert.AreEqual(hasEggs[0], newscore.CalculateAllergies()[0]);
     }
   }
 }

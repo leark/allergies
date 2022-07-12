@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Allergies
 {
   public class Allergy
@@ -9,10 +11,12 @@ namespace Allergies
       Score = score;
     }
 
-    // public string[] CalculateAllergies() 
-    // {
-    //   return {};
-    // }
+    public List<string> CalculateAllergies() 
+    {
+      List<string> allergies = new List<string> {""};
+      
+      return allergies;
+    }
   }
 }
 
