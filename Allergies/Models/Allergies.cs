@@ -5,15 +5,18 @@ namespace Allergies
   public class Allergy
   {
     public int Score { get; set; }
+    public Dictionary<int, string> Allergens;
 
     public Allergy(int score) 
     {
       Score = score;
+      Allergens = new Dictionary<int, string>() {{1, "eggs"}, {2, "peanuts"}};
     }
 
     public List<string> CalculateAllergies() 
     {
-      List<string> allergies = new List<string> {""};
+      List<string> allergies = new List<string> {};
+      allergies.Add(Allergens[Score]);
       
       return allergies;
     }

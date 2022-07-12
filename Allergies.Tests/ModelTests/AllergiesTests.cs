@@ -22,13 +22,22 @@ namespace Allergies.Tests
     }
 
     [TestMethod]
-    public void Allergy_CalculateAllergyForOne_Egg()
+    public void Allergy_CalculateAllergyForOne_Eggs()
     {
       int score = 1;
       Allergy newscore = new Allergy(score);
-      List<string
-      > hasEggs = new List<string> {"eggs"};
-      Assert.AreEqual(hasEggs[0], newscore.CalculateAllergies()[0]);
+      List<string> correctAnswer = new List<string> {"eggs"};
+      Assert.AreEqual(correctAnswer[0], newscore.CalculateAllergies()[0]);
+    }
+
+    [TestMethod]
+    public void Allergy_CalculateAllergyForTwo_EggsPeanuts()
+    {
+      int score = 3;
+      Allergy newscore = new Allergy(score);
+      List<string> correctAnswer = new List<string> {"eggs", "peanuts"};
+      Assert.AreEqual(correctAnswer[0], newscore.CalculateAllergies()[0]);
+      Assert.AreEqual(correctAnswer[1], newscore.CalculateAllergies()[1]);
     }
   }
 }
