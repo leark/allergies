@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace Allergies
 {
@@ -10,55 +12,24 @@ namespace Allergies
     public Allergy(int score) 
     {
       Score = score;
-      Allergens = new Dictionary<int, string>() {{1, "eggs"}, {2, "peanuts"}};
+      Allergens = new Dictionary<int, string>() {{1, "eggs"}, {2, "peanuts"}, {4, "shellfish"}, {8, "strawberries"}, {16, "tomatoes"}, {32, "chocolate"}, {64, "pollen"}, {128, "cats"}};
     }
 
     public List<string> CalculateAllergies() 
     {
       List<string> allergies = new List<string> {};
       int tempScore = Score;
+      Dictionary<int, string>.KeyCollection keys = Allergens.Keys;
+
       while (tempScore > 0) {
-        if (tempScore >= 128)
-        {
-          allergies.Add("cats");
-          tempScore -= 128;
+        for (int i = keys.Count - 1; i >= 0; i--) {
+          int allergenScore = keys.ElementAt(i);
+          if (tempScore >= allergenScore) {
+            allergies.Add(Allergens[allergenScore]);
+            tempScore -= allergenScore;
+          }
         }
-        else if (tempScore >= 64)
-        {
-          allergies.Add("pollen");
-          tempScore -= 64;
-        }
-        else if (tempScore >= 32)
-        {
-          allergies.Add("chocolate");
-          tempScore -= 32;
-        }
-        else if (tempScore >= 16)
-        {
-          allergies.Add("tomatoes");
-          tempScore -= 16;
-        }
-        else if (tempScore >= 8)
-        {
-          allergies.Add("strawberries");
-          tempScore -= 8;
-        }
-        else if (tempScore >= 4)
-        {
-          allergies.Add("shellfish");
-          tempScore -= 4;
-        }
-        else if (tempScore >= 2)
-        {
-          allergies.Add("peanuts");
-          tempScore -= 2;
-        }
-        else if (tempScore >= 1)
-        {
-          allergies.Add("eggs");
-          tempScore -= 1;
-        }
-      }      
+      }
       return allergies;
     }
   }
