@@ -1,16 +1,23 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Allergy;
+using Allergies;
 
-namespace Allergy.Tests
+namespace Allergies.Tests
 {
   [TestClass]
-  public class AllergiesTests
+  public class AllergyTests
   {
     [TestMethod]
-    public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
+    public void Allergy_createAllergyObjWithScoreOne_One()
     {
+      //arrange
       // any necessary logic to prep for test; instantiating new classes, etc.
-      Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
+      Allergy newscore = new Allergy(1);
+
+      //act
+      
+      //assert
+      
+      Assert.AreEqual(1, newscore.Score);
     }
   }
 }

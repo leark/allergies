@@ -1,11 +1,28 @@
-namespace Allergy
+namespace Allergies
 {
-  public class Allergies
+  public class Allergy
   {
-    
+    public int Score { get; set; }
+
+    public Allergy(int score) 
+    {
+      // Score = score;
+    }
+
+    // public string[] CalculateAllergies() 
+    // {
+    //   return {};
+    // }
   }
 }
 
+
+
+/*
+create a dictionary for allergy scores
+create a constructor for our allergy class to get score
+
+*/
 /*
 
 allergen     score
