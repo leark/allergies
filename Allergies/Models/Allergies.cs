@@ -6,7 +6,7 @@ namespace Allergies
 
     public Allergy(int score) 
     {
-      // Score = score;
+      Score = score;
     }
 
     // public string[] CalculateAllergies() 
