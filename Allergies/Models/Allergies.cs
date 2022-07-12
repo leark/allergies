@@ -16,8 +16,49 @@ namespace Allergies
     public List<string> CalculateAllergies() 
     {
       List<string> allergies = new List<string> {};
-      allergies.Add(Allergens[Score]);
-      
+      int tempScore = Score;
+      while (tempScore > 0) {
+        if (tempScore >= 128)
+        {
+          allergies.Add("cats");
+          tempScore -= 128;
+        }
+        else if (tempScore >= 64)
+        {
+          allergies.Add("pollen");
+          tempScore -= 64;
+        }
+        else if (tempScore >= 32)
+        {
+          allergies.Add("chocolate");
+          tempScore -= 32;
+        }
+        else if (tempScore >= 16)
+        {
+          allergies.Add("tomatoes");
+          tempScore -= 16;
+        }
+        else if (tempScore >= 8)
+        {
+          allergies.Add("strawberries");
+          tempScore -= 8;
+        }
+        else if (tempScore >= 4)
+        {
+          allergies.Add("shellfish");
+          tempScore -= 4;
+        }
+        else if (tempScore >= 2)
+        {
+          allergies.Add("peanuts");
+          tempScore -= 2;
+        }
+        else if (tempScore >= 1)
+        {
+          allergies.Add("eggs");
+          tempScore -= 1;
+        }
+      }      
       return allergies;
     }
   }
@@ -31,6 +72,11 @@ create a constructor for our allergy class to get score
 
 */
 /*
+
+135 -> gonna have cats so subtract 128 for cats
+7 -> def have shellfish subtract 4
+3 -> subtract peanuts
+1 -> eggs
 
 allergen     score
 eggs         1

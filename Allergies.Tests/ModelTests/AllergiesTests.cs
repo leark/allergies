@@ -35,9 +35,21 @@ namespace Allergies.Tests
     {
       int score = 3;
       Allergy newscore = new Allergy(score);
-      List<string> correctAnswer = new List<string> {"eggs", "peanuts"};
+      List<string> correctAnswer = new List<string> {"peanuts", "eggs"};
       Assert.AreEqual(correctAnswer[0], newscore.CalculateAllergies()[0]);
       Assert.AreEqual(correctAnswer[1], newscore.CalculateAllergies()[1]);
+    }
+
+    [TestMethod]
+    public void Allergy_CalculateAllergyForFour_CatsShellfishEggsPeanuts()
+    {
+      int score = 135;
+      Allergy newscore = new Allergy(score);
+      List<string> correctAnswer = new List<string> {"cats", "shellfish", "peanuts", "eggs"};
+      Assert.AreEqual(correctAnswer[0], newscore.CalculateAllergies()[0]);
+      Assert.AreEqual(correctAnswer[1], newscore.CalculateAllergies()[1]);
+      Assert.AreEqual(correctAnswer[2], newscore.CalculateAllergies()[2]);
+      Assert.AreEqual(correctAnswer[3], newscore.CalculateAllergies()[3]);
     }
   }
 }
